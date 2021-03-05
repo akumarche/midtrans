@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,6 +45,9 @@ public class DialogPage  extends Base {
 
 	@FindBy (css = "div[class='card-container full']")
 	WebElement transactionMessage;
+	
+	@FindBy (xpath = "//iframe[contains(@src, 'https://api.sandbox.veritrans.co.id/v2')]")
+	WebElement veritransIframe;
 
 	public String verifyOrderSummary() {
 		String order = getText(orderSummary);
@@ -88,7 +90,7 @@ public class DialogPage  extends Base {
 	public void enterPassword(String pass) throws InterruptedException {
 
 		Thread.sleep(5000);
-		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src, 'https://api.sandbox.veritrans.co.id/v2')]")));
+		driver.switchTo().frame(veritransIframe);
 
 		click(enterPassword);
 		sendKeys(enterPassword,pass);

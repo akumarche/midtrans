@@ -1,4 +1,4 @@
-
+@smoke
 Feature: To test transaction with valid / Invalid credit card
 
 Background: Buy Pillow

@@ -13,7 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public class Base {
 
 	public static WebDriver driver;
@@ -35,6 +34,7 @@ public class Base {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	// Method for driver initializing driver, invoking browser and opening midtrans website
@@ -63,6 +63,7 @@ public class Base {
 	}
 	// Customized Selenium methods to wait for element till visible and then perform action
 	public void waitForVisibility(WebElement e) {
+
 		WebDriverWait wait = new WebDriverWait(driver , 10);
 		wait.until(ExpectedConditions.visibilityOf(e));
 	}
@@ -92,5 +93,4 @@ public class Base {
 		driver.quit();
 
 	}
-
 }
